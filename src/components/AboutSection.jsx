@@ -77,7 +77,7 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-gray-600 text-lg leading-relaxed mb-5">
-              Maharaja Grocery was built for the Kelowna community — a place where you can find the dosa batter, the right lentils, the spices your grandmother used, and the frozen samosas that save a busy weeknight.
+              Maharajah Grocerz Inc was built for the Kelowna community — a place where you can find the dosa batter, the right lentils, the spices your grandmother used, and the frozen samosas that save a busy weeknight.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed mb-10">
               Whether you're a seasoned cook or just discovering South Asian cuisine, our knowledgeable, friendly staff are here to help. We don't just stock shelves — we connect people to culture, memory, and flavour.

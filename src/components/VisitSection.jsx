@@ -30,13 +30,13 @@ export default function VisitSection() {
           {/* Map */}
           <div className="scroll-reveal rounded-3xl overflow-hidden shadow-2xl border-2" style={{ minHeight: '420px', borderColor: 'rgba(43,57,144,0.15)' }}>
             <iframe
-              src="https://maps.google.com/maps?q=150+Asher+Rd+Kelowna+BC+V1X+3H6&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAfDKmwY3DuHXsvcjo6fLdYkAs2hosVM-g&q=place_id:ChIJL-cQLuyNfVMR0dfnf7ZQGU0&zoom=15"
               className="w-full h-full"
               style={{ minHeight: '420px', border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Maharaja Grocery Location"
+              title="Maharajah Grocerz Inc Location"
             />
           </div>
 

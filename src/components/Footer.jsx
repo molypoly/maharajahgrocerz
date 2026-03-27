@@ -24,7 +24,7 @@ export default function Footer() {
                    style={{ background: 'linear-gradient(135deg, #F5C518, #D4A800)' }}>
                 ♛
               </div>
-              <span className="font-serif text-xl font-bold text-white">Maharaja Grocery</span>
+              <span className="font-serif text-xl font-bold text-white">Maharajah Grocerz Inc</span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed italic pl-12">
               "Bringing the flavours of home to Kelowna."
@@ -79,7 +79,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t pt-8 text-center" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
-          <p className="text-white/25 text-sm">© 2025 Maharaja Grocery, Kelowna BC. All rights reserved.</p>
+          <p className="text-white/25 text-sm">© 2025 Maharajah Grocerz Inc, Kelowna BC. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -19,12 +19,17 @@ export default function Navbar() {
   }
 
   const switchLanguage = (lang) => {
+  const trySwitch = (attempts = 0) => {
     const select = document.querySelector('.goog-te-combo')
     if (select) {
       select.value = lang
       select.dispatchEvent(new Event('change'))
+    } else if (attempts < 10) {
+      setTimeout(() => trySwitch(attempts + 1), 300)
     }
   }
+  trySwitch()
+}
 
   return (
     <nav
@@ -46,7 +51,7 @@ export default function Navbar() {
               ♛
             </div>
             <span className="font-serif text-lg lg:text-xl font-bold text-white group-hover:text-gold transition-colors tracking-wide">
-              Maharaja Grocery
+              Maharajah Grocerz Inc
             </span>
           </button>
 
@@ -121,7 +126,7 @@ export default function Navbar() {
           </div>
         )}
       </div>
-      <div id="google_translate_element" style={{ display: 'none' }} />
+      <div id="google_translate_element" style={{ position: 'absolute', opacity: 0, pointerEvents: 'none', height: 0, overflow: 'hidden' }} />
     </nav>
   )
 }

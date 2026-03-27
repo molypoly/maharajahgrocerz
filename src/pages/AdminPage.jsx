@@ -74,7 +74,7 @@ export default function AdminPage() {
                    style={{ background: 'linear-gradient(135deg, #F5C518, #D4A800)' }}>
                 ♛
               </div>
-              <h1 className="font-serif text-2xl font-bold text-white">Maharaja Grocery</h1>
+              <h1 className="font-serif text-2xl font-bold text-white">Maharajah Grocerz Inc</h1>
               <p className="text-white/40 text-sm mt-1">Admin Portal</p>
             </div>
 
@@ -128,7 +128,7 @@ export default function AdminPage() {
             <div className="w-9 h-9 rounded-lg flex items-center justify-center text-navy font-bold"
                  style={{ background: 'linear-gradient(135deg, #F5C518, #D4A800)' }}>♛</div>
             <div>
-              <div className="font-serif font-bold text-white">Maharaja Grocery</div>
+              <div className="font-serif font-bold text-white">Maharajah Grocerz Inc</div>
               <div className="text-white/40 text-xs">Admin Panel</div>
             </div>
           </div>

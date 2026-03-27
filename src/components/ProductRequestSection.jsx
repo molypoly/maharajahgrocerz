@@ -16,7 +16,7 @@ export default function ProductRequestSection() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const body = `Hi Maharaja Grocery Team,\n\nI'd like to request the following product:\n\nName: ${form.name}\nContact: ${form.contact}\nProduct: ${form.product}\n\nThank you!`
+    const body = `Hi Maharajah Grocerz Inc Team,\n\nI'd like to request the following product:\n\nName: ${form.name}\nContact: ${form.contact}\nProduct: ${form.product}\n\nThank you!`
     window.location.href = `mailto:info@maharajagrocery.ca?subject=Product Request from ${form.name}&body=${encodeURIComponent(body)}`
     setSubmitted(true)
   }
@@ -58,7 +58,7 @@ export default function ProductRequestSection() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 {[
-                  { label: 'Your Name', field: 'name', type: 'text', placeholder: 'e.g. Priya Sharma' },
+                  { label: 'Your Name', field: 'name', type: 'text', placeholder: 'Your Name Here' },
                   { label: 'Phone or Email', field: 'contact', type: 'text', placeholder: "So we can let you know when it's in" },
                 ].map(({ label, field, type, placeholder }) => (
                   <div key={field}>
