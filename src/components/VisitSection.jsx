@@ -30,7 +30,7 @@ export default function VisitSection() {
           {/* Map */}
           <div className="scroll-reveal rounded-3xl overflow-hidden shadow-2xl border-2" style={{ minHeight: '420px', borderColor: 'rgba(43,57,144,0.15)' }}>
             <iframe
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAfDKmwY3DuHXsvcjo6fLdYkAs2hosVM-g&q=place_id:ChIJL-cQLuyNfVMR0dfnf7ZQGU0&zoom=15"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCd5S3sfNAkXaHS82XoFlXbVcnple43Xd8&q=place_id:ChIJL-cQLuyNfVMR0dfnf7ZQGU0&zoom=15"
               className="w-full h-full"
               style={{ minHeight: '420px', border: 0 }}
               allowFullScreen
