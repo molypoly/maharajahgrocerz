@@ -19,6 +19,16 @@ export default function Navbar() {
   }
 
   const switchLanguage = (lang) => {
+  if (lang === 'en') {
+    const reset = () => {
+      const expire = 'expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/'
+      document.cookie = `googtrans=; ${expire}`
+      document.cookie = `googtrans=; ${expire}; domain=${window.location.hostname}`
+      window.location.reload()
+    }
+    reset()
+    return
+  }
   const trySwitch = (attempts = 0) => {
     const select = document.querySelector('.goog-te-combo')
     if (select) {
