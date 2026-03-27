@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 export default function ProductRequestSection() {
   const [form, setForm] = useState({ name: '', contact: '', product: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
@@ -14,11 +15,26 @@ export default function ProductRequestSection() {
     return () => observer.disconnect()
   }, [])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const body = `Hi Maharajah Grocerz Inc Team,\n\nI'd like to request the following product:\n\nName: ${form.name}\nContact: ${form.contact}\nProduct: ${form.product}\n\nThank you!`
-    window.location.href = `mailto:info@maharajagrocery.ca?subject=Product Request from ${form.name}&body=${encodeURIComponent(body)}`
-    setSubmitted(true)
+    setError(false)
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'product-request',
+          ...form,
+        }).toString(),
+      })
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        setError(true)
+      }
+    } catch {
+      setError(true)
+    }
   }
 
   return (
@@ -37,9 +53,15 @@ export default function ProductRequestSection() {
           <p className="text-gray-500 text-xl">We take requests. Tell us what you need and we'll do our best to stock it.</p>
         </div>
 
+        {/* Hidden form for Netlify to detect at build time */}
+        <form name="product-request" data-netlify="true" hidden>
+          <input type="text" name="name" />
+          <input type="text" name="contact" />
+          <textarea name="product" />
+        </form>
+
         {/* Form card */}
         <div className="scroll-reveal rounded-3xl overflow-hidden shadow-xl border" style={{ transitionDelay: '0.1s', borderColor: 'rgba(43,57,144,0.1)' }}>
-          {/* Gradient top bar */}
           <div className="h-1.5" style={{ background: 'linear-gradient(90deg, #2B3990, #F5C518, #2B3990)' }} />
 
           <div className="bg-white p-8 lg:p-12">
@@ -56,7 +78,13 @@ export default function ProductRequestSection() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form
+                name="product-request"
+                onSubmit={handleSubmit}
+                className="space-y-5"
+              >
+                <input type="hidden" name="form-name" value="product-request" />
+
                 {[
                   { label: 'Your Name', field: 'name', type: 'text', placeholder: 'Your Name Here' },
                   { label: 'Phone or Email', field: 'contact', type: 'text', placeholder: "So we can let you know when it's in" },
@@ -65,20 +93,22 @@ export default function ProductRequestSection() {
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#1A2266' }}>{label}</label>
                     <input
                       type={type}
+                      name={field}
                       required
                       value={form[field]}
                       onChange={e => setForm({ ...form, [field]: e.target.value })}
                       placeholder={placeholder}
                       className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:outline-none transition-all text-gray-700"
-                      style={{ '--tw-ring-color': '#2B3990' }}
                       onFocus={e => { e.target.style.borderColor = '#2B3990'; e.target.style.boxShadow = '0 0 0 3px rgba(43,57,144,0.1)' }}
                       onBlur={e => { e.target.style.borderColor = '#e5e7eb'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
                 ))}
+
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1A2266' }}>Product Name / Description</label>
                   <textarea
+                    name="product"
                     required
                     value={form.product}
                     onChange={e => setForm({ ...form, product: e.target.value })}
@@ -89,6 +119,11 @@ export default function ProductRequestSection() {
                     onBlur={e => { e.target.style.borderColor = '#e5e7eb'; e.target.style.boxShadow = 'none' }}
                   />
                 </div>
+
+                {error && (
+                  <p className="text-red-500 text-sm">Something went wrong. Please try again or call us directly.</p>
+                )}
+
                 <div className="flex items-center gap-4 pt-2">
                   <button type="submit" className="btn-royal px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
