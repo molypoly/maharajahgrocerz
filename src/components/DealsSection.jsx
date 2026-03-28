@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 
 export default function DealsSection() {
-  const [flyerUrl, setFlyerUrl] = useState(null)
+  const [flyerUrl, setFlyerUrl] = useState('https://drive.google.com/file/d/1kt1p3kX3Nsfi0Do8iXoRmkG6oCmpPPBZ/preview')
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
   const sectionRef = useRef(null)

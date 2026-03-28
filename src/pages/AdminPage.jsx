@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 // Change this password in the code as needed
-const ADMIN_PASSWORD = 'maharaja2025'
+const ADMIN_PASSWORD = 'maharajah2026'
 
 export default function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false)
